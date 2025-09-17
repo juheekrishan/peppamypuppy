@@ -14,9 +14,9 @@ async function init() {
 
     // Update page with prices (fallbacks included)
     document.getElementById("classicPrice").innerText =
-      "$" + prices.getValue("classic_price", 5.99);
+      "$" + prices.getValue("classic", 5.99);
     document.getElementById("veganPrice").innerText =
-      "$" + prices.getValue("vegan_price", 7.99);
+      "$" + prices.getValue("vegan", 7.99);
 
   } catch (err) {
     console.error("Statsig init error:", err);
