@@ -2,7 +2,7 @@
 import { StatsigClient } from "https://cdn.jsdelivr.net/npm/statsig-js/+esm";
 
 // IMPORTANT: replace the placeholder with your Statsig *client* key
-const STATSIG_CLIENT_KEY = "client-<YOUR_CLIENT_KEY_HERE>";
+const STATSIG_CLIENT_KEY = "client-lvyaEX4AsDwO6oFHqUcvKOIUMnAcEAZbyrAZHXEWFbJ";
 
 const client = new StatsigClient(STATSIG_CLIENT_KEY);
 
