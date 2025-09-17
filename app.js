@@ -8,7 +8,7 @@ function logAddToCart(flavor) {
   alert(`Added ${flavor} treat to cart! 🐾`);
 }
 
-// This function is called when the Statsig SDK finishes loading
+// Initialize Statsig and load Dynamic Config
 async function initStatsig() {
   if (!window.statsig) {
     console.error("Statsig SDK not loaded!");
@@ -18,8 +18,10 @@ async function initStatsig() {
   try {
     await statsig.initialize({ userID: "peppa-user" });
 
+    // Fetch Dynamic Config
     const prices = await statsig.getConfig("treat_prices");
 
+    // Check if config is published
     if (!prices) {
       console.error("Dynamic Config 'treat_prices' not found or not published!");
       document.getElementById("classicPrice").innerText = "Config Error";
@@ -27,7 +29,7 @@ async function initStatsig() {
       return;
     }
 
-    // Update page with prices
+    // Update page prices
     document.getElementById("classicPrice").innerText =
       "$" + prices.getValue("classic_price", "N/A");
     document.getElementById("veganPrice").innerText =
@@ -41,3 +43,6 @@ async function initStatsig() {
     document.getElementById("veganPrice").innerText = "Error";
   }
 }
+
+// Run init after page fully loads
+window.addEventListener("load", initStatsig);
