@@ -1,4 +1,4 @@
-// Make Add to Cart global
+// Global Add to Cart function
 function logAddToCart(flavor) {
   if (!window.statsig) {
     alert("Statsig not loaded yet!");
@@ -8,8 +8,8 @@ function logAddToCart(flavor) {
   alert(`Added ${flavor} treat to cart! 🐾`);
 }
 
-// Initialize Statsig after page load
-window.addEventListener("load", async () => {
+// This function is called when the Statsig SDK finishes loading
+async function initStatsig() {
   if (!window.statsig) {
     console.error("Statsig SDK not loaded!");
     return;
@@ -27,7 +27,7 @@ window.addEventListener("load", async () => {
       return;
     }
 
-    // Update prices on the page
+    // Update page with prices
     document.getElementById("classicPrice").innerText =
       "$" + prices.getValue("classic_price", "N/A");
     document.getElementById("veganPrice").innerText =
@@ -40,5 +40,4 @@ window.addEventListener("load", async () => {
     document.getElementById("classicPrice").innerText = "Error";
     document.getElementById("veganPrice").innerText = "Error";
   }
-});
-
+}
