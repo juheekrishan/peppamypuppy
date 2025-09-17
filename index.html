@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peppa's Dog Treats 🐶🍪</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Welcome to Peppa's Dog Treats 🐾</h1>
+    <div id="banner"></div>
+  </header>
+
+  <main>
+    <section class="treats">
+      <div class="treat">
+        <h2>Classic Chicken Treats</h2>
+        <p id="classicPrice">$--</p>
+        <button onclick="logAddToCart('classic')">Add to Cart</button>
+      </div>
+
+      <div class="treat">
+        <h2>Vegan Sweet Potato Treats</h2>
+        <p id="veganPrice">$--</p>
+        <button onclick="logAddToCart('vegan')">Add to Cart</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Peppa’s Dog Treats</p>
+  </footer>
+
+  <!-- load our app as a module -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
