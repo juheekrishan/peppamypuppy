@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peppa's Dog Treats</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Peppa's Dog Treats</h1>
+
+  <div class="treat">
+    <p>
+      Classic Treat: <span id="classicPrice">$--</span>
+      <button onclick="logAddToCart('classic')">Add to Cart</button>
+    </p>
+  </div>
+
+  <div class="treat">
+    <p>
+      Vegan Treat: <span id="veganPrice">$--</span>
+      <button onclick="logAddToCart('vegan')">Add to Cart</button>
+    </p>
+  </div>
+
+  <!-- Statsig SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@statsig/js-client@3/build/statsig-js-client+session-replay+web-analytics.min.js?apikey=client-lvyaEX4AsDwO6oFHqUcvKOIUMnAcEAZbyrAZHXEWFbJ"></script>
+
+  <!-- Your app code -->
+  <script src="app.js"></script>
+</body>
+</html>
