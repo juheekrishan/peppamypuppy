@@ -1,36 +1,20 @@
-// using the ESM CDN build
-import { StatsigClient } from "https://cdn.jsdelivr.net/npm/statsig-js/+esm";
+// app.js
 
-// IMPORTANT: replace the placeholder with your Statsig *client* key
-const STATSIG_CLIENT_KEY = "client-lvyaEX4AsDwO6oFHqUcvKOIUMnAcEAZbyrAZHXEWFbJ";
-
-const client = new StatsigClient(STATSIG_CLIENT_KEY);
+const STATSIG_CLIENT_KEY = "client-lvyaEX4AsDwO6oFHqUcvKOIUMnAcEAZbyrAZHXEWFbJ"; // replace with your real client key
 
 async function init() {
-  // Initialize Statsig for a sample user id
-  await client.initializeAsync("peppa_demo_user");
+  // Initialize Statsig with a simple user
+  await statsig.initialize(STATSIG_CLIENT_KEY, { userID: "peppa-user" });
 
-  // Feature Gate → Vegan Treats Banner
-  const showVeganBanner = await client.checkGate("vegan_treats_banner");
-  if (showVeganBanner) {
-    document.getElementById("banner").innerText = "🌱 Try our NEW Vegan Treats!";
-  }
+  // Fetch the treat_prices config
+  const prices = await statsig.getConfig("treat_prices");
+  console.log("Loaded config:", prices);
 
-  // Dynamic Config → Prices
-  const prices = await client.getConfig("treat_prices");
+  // Update the page with values from Statsig (with fallbacks)
   document.getElementById("classicPrice").innerText =
     "$" + prices.getValue("classic_price", 5.99);
   document.getElementById("veganPrice").innerText =
     "$" + prices.getValue("vegan_price", 7.99);
 }
 
-// Log Event → Add to Cart
-window.logAddToCart = function (treat) {
-  client.logEvent("add_to_cart", treat, { flavor: treat });
-  alert(`Added ${treat} treat to cart! 🐾`);
-};
-
-init().catch(err => {
-  console.error("Statsig init error:", err);
-  document.getElementById("banner").innerText = ""; // degrade gracefully
-});
+init();
