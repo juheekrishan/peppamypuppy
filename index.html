@@ -1,45 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Peppa's Dog Treats 🐶🍪</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peppa's Dog Treats</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; }
+    .treat { margin-bottom: 1rem; }
+    button { margin-left: 1rem; padding: 0.3rem 0.7rem; }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to Peppa's Dog Treats 🐾</h1>
-    <div id="banner"></div>
-  </header>
+  <h1>Peppa's Dog Treats</h1>
 
-  <main>
-    <section class="treats">
-      <div class="treat">
-        <h2>Classic Chicken Treats</h2>
-        <p id="classicPrice">$--</p>
-        <button onclick="logAddToCart('classic')">Add to Cart</button>
-      </div>
+  <div class="treat">
+    <p>
+      Classic Treat: <span id="classicPrice">$--</span>
+      <button onclick="logAddToCart('classic')">Add to Cart</button>
+    </p>
+  </div>
 
-      <div class="treat">
-        <h2>Vegan Sweet Potato Treats</h2>
-        <p id="veganPrice">$--</p>
-        <button onclick="logAddToCart('vegan')">Add to Cart</button>
-      </div>
-    </section>
-  </main>
+  <div class="treat">
+    <p>
+      Vegan Treat: <span id="veganPrice">$--</span>
+      <button onclick="logAddToCart('vegan')">Add to Cart</button>
+    </p>
+  </div>
 
-  <footer>
-    <p>© 2025 Peppa’s Dog Treats</p>
-  </footer>
-
-  <!-- load our app as a module -->
-<script src="https://cdn.jsdelivr.net/npm/@statsig/js-client@3/build/statsig-js-client+session-replay+web-analytics.min.js?apikey=client-lvyaEX4AsDwO6oFHqUcvKOIUMnAcEAZbyrAZHXEWFbJ">
-</script>
-<script src="app.js"></script>
-
-
-
-
-
-</body>
-</html>
+  <!-- Statsig SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@statsig/js-client@3/build/statsig-js-client+session-replay+web-analytics.min.js?apikey=client-lvyaEX4AsDwO
