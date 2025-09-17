@@ -1,6 +1,6 @@
 // app.js
 
-const STATSIG_CLIENT_KEY = "client-xxxxxxxx"; // replace with your real client key
+const STATSIG_CLIENT_KEY = "client-lvyaEX4AsDwO6oFHqUcvKOIUMnAcEAZbyrAZHXEWFbJ"; // replace with your real client key
 
 async function init() {
   try {
